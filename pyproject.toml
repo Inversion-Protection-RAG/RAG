@@ -18,7 +18,8 @@ dependencies = [
     "pandas (>=3.0.2,<4.0.0)",
     "diffprivlib (>=0.6.6,<0.7.0)",
     "python-dotenv (>=1.2.2,<2.0.0)",
-    "dotenv (>=0.9.9,<0.10.0)"
+    "dotenv (>=0.9.9,<0.10.0)",
+    "datasets (>=4.8.4,<5.0.0)"
 ]
 
 
