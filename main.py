@@ -6,22 +6,23 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-app = FastAPI(title="Secure RAG Project")
+app = FastAPI(title="Inversion Protection RAG")
 
-# 1. Qdrant 연결 확인
+# Qdrant Connection Check
 qdrant_client = QdrantClient(host=os.getenv("QDRANT_HOST"), port=int(os.getenv("QDRANT_PORT")))
 
-# 2. BGE-M3 임베딩 모델 로드
+# GE-M3 Embedding Model Load
 tokenizer = AutoTokenizer.from_pretrained(os.getenv("EMBEDDING_MODEL"))
-model = AutoModel.from_pretrained(os.getenv("EMBEDDING_MODEL")).to("mps") # Mac GPU 사용
+model = AutoModel.from_pretrained(os.getenv("EMBEDDING_MODEL")).to("mps") # USE MAC GPU, Windows ?
 
+# Health Check
 @app.get("/")
 def health_check():
-    return {"status": "ok", "message": "Secure RAG System is running on M4"}
+    return {"status": "ok", "message": "RAG is Running"}
 
+# Local LLM(llama3) Test
 @app.get("/test-llm")
 def test_llm():
-    # 로컬 Ollama(Llama-3) 연동 테스트
     response = ollama.chat(model='llama3', messages=[
         {'role': 'user', 'content': '안녕! 너는 누구니?'},
     ])
