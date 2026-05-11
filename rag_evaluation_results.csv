@@ -1,0 +1,4 @@
+,NDCG@5,Recall@5,MRR@5,Inversion Rate,Cosine Sim,BLEU,ROUGE-L,Avg Latency(ms),P95 Latency(ms)
+Natural,0.8333,0.8333,0.8333,1.0,1.0,1.0,1.0,5.8754,6.2443
+Gaussian Noise,0.8333,0.8333,0.8333,0.2163,0.9369,0.1567,0.2758,4.3936,5.3931
+Adaptive Noise,0.7103,0.8333,0.6667,0.167,0.7122,0.0907,0.2434,3.9527,4.7517
